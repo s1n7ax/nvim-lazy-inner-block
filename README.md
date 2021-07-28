@@ -1,14 +1,36 @@
-# neovim-lua-plugin-boilerplate
+# nvim-easy-inner-block
 
-I forget the structure of a `neovim` plugin every single time. So I created the
-boilerplate to make it easier to get started writing `neovim` plugin.
+Maps `d`, `c`, `y` operator inside block operations directly to block characters.
 
-[YouTube video](https://youtu.be/6ch28A_YICQ)
+for example to delete inside `()` usually you would use `di(`but this plugin
+remaps it to `d(`.
 
-## How to use
+Following are the new mappings
 
-* clone the project `git clone https://github.com/s1n7ax/neovim-lua-plugin-boilderplate`
-* go to the project folder `cd neovim-lua-plugin-boilderplate`
-* start editing `nvim --cmd "set rtp+=."`
-* reference the dev configurations `:luafile dev/init.lua`
-* run the greetings.greet() function using `,w` keybind
+here `_` is one of `d`, `c`, `y` operators
+
+| Previous bind | New bind |
+| ------------- | -------- |
+| `_i(`         | `_(`     |
+| `_i)`         | `_)`     |
+| `_i{`         | `_{`     |
+| `_i}`         | `_}`     |
+| `_i[`         | `_[`     |
+| `_i]`         | `_]`     |
+| `_i>`         | `_>`     |
+| `_i'`         | `_'`     |
+| `_i"`         | `_"`     |
+| ``_i```       | ``_\```  |
+
+## Install
+
+### Packer
+
+```lua
+use {
+    's1n7ax/nvim-easy-inner-block',
+    config = function()
+        require('nvim-easy-inner-block').setup()
+    end
+}
+```
