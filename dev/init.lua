@@ -1,7 +1,7 @@
 --[[
 -- plugin name will be used to reload the loaded modules
 --]]
-local package_name = 'nvim-easy-inner-block'
+local package_name = 'nvim-lazy-inner-block'
 
 -- add the escape character to special characters
 local escape_pattern = function (text)

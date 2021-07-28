@@ -1,4 +1,4 @@
-# nvim-easy-inner-block
+# nvim-lazy-inner-block
 
 Maps `d`, `c`, `y` operator inside block operations directly to block characters.
 
@@ -28,9 +28,9 @@ here `_` is one of `d`, `c`, `y` operators
 
 ```lua
 use {
-    's1n7ax/nvim-easy-inner-block',
+    's1n7ax/nvim-lazy-inner-block',
     config = function()
-        require('nvim-easy-inner-block').setup()
+        require('nvim-lary-inner-block').setup()
     end
 }
 ```
