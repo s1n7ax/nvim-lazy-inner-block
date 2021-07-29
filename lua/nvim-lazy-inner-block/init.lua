@@ -2,13 +2,19 @@ local api = vim.api
 
 local function map_keys(bufnr)
     local keys = {'{', '}', '(', ')', '[', ']', '<', '>', "'", '"', '`'}
+    local operators = { 'd', 'y', 'v', 'c' }
 
     for _, key in ipairs(keys) do
-        if bufnr then
-            api.nvim_buf_set_keymap(bufnr, 'o', key, 'i' .. key, {})
-        else
-            local action = 'i' .. key
-            api.nvim_set_keymap('o', key, 'i' .. key, {})
+        for _, operator in ipairs(operators) do
+
+            local keymap = operator .. key
+            local action = operator .. 'i' .. key
+
+            if bufnr then
+                api.nvim_buf_set_keymap(bufnr, 'n', keymap, action, {})
+            else
+                api.nvim_set_keymap('n', keymap, action, {})
+            end
         end
     end
 end

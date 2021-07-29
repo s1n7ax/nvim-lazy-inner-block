@@ -1,13 +1,13 @@
 # nvim-lazy-inner-block
 
-Maps `d`, `c`, `y` operator inside block operations directly to block characters.
+Maps `d`, `c`, `y`, `v` operator inside block operations directly to block characters.
 
 for example to delete inside `()` usually you would use `di(`but this plugin
 remaps it to `d(`.
 
 Following are the new mappings
 
-here `_` is one of `d`, `c`, `y` operators
+here `_` is one of `d`, `c`, `y`, `v` operators
 
 | Previous bind | New bind |
 | ------------- | -------- |
