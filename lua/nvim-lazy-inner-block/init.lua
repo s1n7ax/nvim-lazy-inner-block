@@ -1,16 +1,22 @@
-local function map_keys(bufnr)
-	local keys = { "{", "}", "(", ")", "[", "]", "<", ">", "'", '"', "`" }
-	local keymap_opt = { noremap = true }
+local keys = { "{", "}", "(", ")", "[", "]", "<", ">", "'", '"', "`" }
+
+local function map_keys(buffer)
+	local map_opts = {
+		remap = false,
+		unique = true,
+		buffer = buffer,
+	}
 
 	for _, key in ipairs(keys) do
-		local action = "i" .. key
-
-		if bufnr then
-			vim.api.nvim_buf_set_keymap(bufnr, "o", key, action, keymap_opt)
-		else
-			vim.api.nvim_set_keymap("o", key, action, keymap_opt)
-		end
+		vim.keymap.set("o", key, "i" .. key, map_opts)
 	end
+
+	for _, key in ipairs(keys) do
+		vim.keymap.set("v", key, "i" .. key, map_opts)
+	end
+
+	vim.keymap.set("n", ">>", ">>", map_opts)
+	vim.keymap.set("n", "<<", "<<", map_opts)
 end
 
 local function setup(opts)
