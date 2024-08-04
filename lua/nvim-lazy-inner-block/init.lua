@@ -12,7 +12,7 @@ local function map_keys(buffer)
 	end
 
 	for _, key in ipairs(keys) do
-		vim.keymap.set("v", key, "i" .. key, map_opts)
+		vim.keymap.set("x", key, "i" .. key, map_opts)
 	end
 
 	vim.keymap.set("n", ">>", ">>", map_opts)
